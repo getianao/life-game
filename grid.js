@@ -1,0 +1,34 @@
+function blankGrid(map_length, map_width) {
+    
+    var arr = new Array();
+    for (let i = 0; i < map_width; i++){
+        arr[i] = new Array();
+        for (let j = 0; j < map_length; j++){
+            arr[i][j]=0;
+        }
+    }
+	return arr;
+}
+
+function drawGrid(map_length, map_width){
+    let w = 50;
+   
+	for (let i=0; i < map_width; i++) {
+		for (let j=0; j < map_length; j++) {
+			var val=grid[i][j];
+			if(val==0){
+                fill("#F35956");
+                strokeWeight(2);//画笔宽度
+                stroke(0);//画笔颜色
+                rect(j*w,i*w,w,w,20);
+            }
+            else{
+                noFill();
+                strokeWeight(2);//画笔宽度
+                stroke(0);//画笔颜色
+                rect(j*w,i*w,w,w,20);
+            }
+		}
+	}
+}
+

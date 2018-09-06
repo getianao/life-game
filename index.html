@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta chartset="utf-8">
+    <title>life game</title>
+</head>
+
+<body>
+    <div class="form">
+        <div class="map-length">
+            <label>地图长度</label>
+            <input type="text" id="length" value="6">
+        </div>
+        <div class="map-width">
+                <label>地图宽度</label>
+                <input type="text" id="width" value="6">
+        </div>
+        <button id="confirm_map">confirm</button>
+    </div>
+
+
+    <p class="game-explanation">Here is the game explanation</p>
+
+    <div class="control_center" >
+            <button id="start" >start</button>
+            <button onclick="int=window.clearInterval(int)">pause</button>
+
+    </div>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+	<script type ="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
+    <script type="text/javascript" src="sketch.js"></script>
+    <script type="text/javascript" src="grid.js"></script>
+
+</body>
+
+</html>
