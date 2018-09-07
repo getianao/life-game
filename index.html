@@ -5,40 +5,55 @@
     <meta chartset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>life game</title>
+    
 </head>
 
 <body>
-    <div class="left">
+    <div class="left" id="left_navi">
+        <div class="topic">
+                configure
+        </div>
             <div class="form">
-                    <div class="map-length">
-                        <label>map length:</label>
-                        <input type="text" id="length" value="35">
+                    <div class="map-length" >
+                        <label >map length:</label>
+                        <input type="text" id="length" class="inputText">
                     </div>
+                    <br>
                     <div class="map-width">
                             <label>map width:</label>
-                            <input type="text" id="width" value="20">
+                            <input type="text" id="width" class="inputText">
                     </div>
-                    <button id="confirm_map">confirm</button>
-                </div>
-            
-            
-                <p class="game-explanation">Here is the game explanation</p>
-            
-                <div class="control_center" >
-                        <button id="start" >start</button>
-                        <button id="pause" >pause</button>
-                </div>
-                <div class="infomation" >
+                    <br>
+                    <div class="rate">
+                            <label>rate:</label>
+                            <input type="text" id="rate" class="inputText" value="500" git autocomplete="off">
+                    </div>
+                    <br>
+                    <button id="confirm_map" class="button">confirm</button>
+            </div>
+           
+            <div class="aaa"></div>
+            <br>
+            <div class="topic">
+                    information
+            </div>
+            <br>
+                <div class="information" >
                     <p>generate number: <span id="generNum">0</span></p>
+                    <p>running time: <span id="timer">0</span> s</p>
                 </div>
+                <div class="control_center" >
+                        <button id="start" class="button" ><div id="start_word">start</div></button>
+                </div>
+                
     </div>
     
-<div class="right">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
-	<script type ="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/p5.js/0.6.1/p5.min.js"></script>
+    <script src="https://cdn.bootcss.com/p5.js/0.6.1/addons/p5.dom.min.js"></script>
     <script type="text/javascript" src="sketch.js"></script>
     <script type="text/javascript" src="grid.js"></script>
-</div>
+
 	
 
 </body>
