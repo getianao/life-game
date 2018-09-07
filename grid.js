@@ -11,22 +11,22 @@ function blankGrid(map_length, map_width) {
 }
 
 function drawGrid(map_length, map_width){
-    let w = 50;
+
    
 	for (let i=0; i < map_width; i++) {
 		for (let j=0; j < map_length; j++) {
 			var val=grid[i][j];
 			if(val==0){
-                fill("#F35956");
+                fill("                                                    ");
                 strokeWeight(2);//画笔宽度
                 stroke(0);//画笔颜色
-                rect(j*w,i*w,w,w,20);
+                rect(j*grid_width,i*grid_width,grid_width,grid_width,20);
             }
             else{
                 noFill();
                 strokeWeight(2);//画笔宽度
                 stroke(0);//画笔颜色
-                rect(j*w,i*w,w,w,20);
+                rect(j*grid_width,i*grid_width,grid_width,grid_width,20);
             }
 		}
 	}
