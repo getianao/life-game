@@ -13,7 +13,7 @@ html, body
     height: 100%;
     background-color: #24292e;
     box-shadow: 10px 0px 5px #888888;
-    color: white;
+    color: rgb(155, 155, 155);
 
 }
 .form{
@@ -27,6 +27,7 @@ html, body
 }
 .button {
     margin-left: 10px;
+    margin-top: 20px;
     display: inline-block;
     padding: 5px 5px;
     font-size: 15px;
@@ -48,6 +49,12 @@ html, body
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+  #start.button{
+    background-color: lightcoral;
+  }
+  #start.button:active{
+    background-color: rgb(185, 94, 94);
+  }
 
   .inputText{
     border-radius:6px;
@@ -61,7 +68,8 @@ html, body
   .aaa{
       width: 400px;
       height: 1px;
-      margin-top: 50px;
+      margin-top: 25px;
+      margin-bottom: 25px;
       background: white;
       background:linear-gradient(to left,#24292e,white,#24292e);
       width:100%;
