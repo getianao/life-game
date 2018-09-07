@@ -17,14 +17,14 @@ function drawGrid(map_length, map_width){
 		for (let j=0; j < map_length; j++) {
 			var val=grid[i][j];
 			if(val==0){
-                fill("#F35956");
-                strokeWeight(2);//画笔宽度
+                fill("#888888");
+                strokeWeight(1.5);//画笔宽度
                 stroke(0);//画笔颜色
                 rect(j*grid_width,i*grid_width,grid_width,grid_width,20);
             }
             else{
-                noFill();
-                strokeWeight(2);//画笔宽度
+                fill("#F35956");
+                strokeWeight(1.5);//画笔宽度
                 stroke(0);//画笔颜色
                 rect(j*grid_width,i*grid_width,grid_width,grid_width,20);
             }

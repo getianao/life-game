@@ -10,40 +10,62 @@
 
 <body>
     <div class="left" id="left_navi">
+        
+        <br>
+        <div class="topic" id="big">
+            <strong>Life Game</strong>   
+        </div>
+        
+        <div class="aaa"></div>
+        <br>
         <div class="topic">
-                configure
+                Configure
         </div>
             <div class="form">
                     <div class="map-length" >
                         <label >map length:</label>
+                        <br>
                         <input type="text" id="length" class="inputText">
                     </div>
                     <br>
                     <div class="map-width">
                             <label>map width:</label>
+                            <br>
                             <input type="text" id="width" class="inputText">
                     </div>
                     <br>
                     <div class="rate">
                             <label>rate:</label>
+                            <br>
                             <input type="text" id="rate" class="inputText" value="500" git autocomplete="off">
                     </div>
                     <br>
-                    <button id="confirm_map" class="button">confirm</button>
+                    <button id="confirm_map" class="button" >confirm</button>
+
+                    <button id="random_map" class="button">random</button>
+
+                    <button id="reset_map" class="button">reset</button>
             </div>
            
             <div class="aaa"></div>
             <br>
             <div class="topic">
-                    information
+                    Information
             </div>
-            <br>
                 <div class="information" >
                     <p>generate number: <span id="generNum">0</span></p>
                     <p>running time: <span id="timer">0</span> s</p>
+                    <p>population: <span id="population">0</span></p>
                 </div>
                 <div class="control_center" >
                         <button id="start" class="button" ><div id="start_word">start</div></button>
+                </div>
+                <div>
+                        <img src="img/alive_cell.png"  alt="alive_cell" class="cell_img" />
+                        <p class="mark">alive cell</p>
+                        
+                        <img src="img/dead_cell.png"  alt="dead_cell"  class="cell_img" />
+                        <p class="mark">dead cell</p>
                 </div>
                 
     </div>
@@ -55,7 +77,6 @@
     <script type="text/javascript" src="grid.js"></script>
 
 	
-
 </body>
 
 </html>

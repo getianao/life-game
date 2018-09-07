@@ -13,7 +13,8 @@ let left_navi_width;//左端导航栏宽度
 let state = 0;//进行状态，0：暂停，1：开始
 let generNum = 0;//迭代次数
 let runnng_time=0;
-let rate=500;
+let rate = 500;
+let population = 0;
 
   //入口
 function setup() {
@@ -53,8 +54,11 @@ function setup() {
             grid = blankGrid(map_len_num, map_wid_num);
             state = 0;
             generNum = 0;
-            runnng_time=0;
-            generNum=0;
+            runnng_time = 0;
+            population = 0;
+            document.getElementById('timer').innerHTML = runnng_time;
+            document.getElementById('population').innerHTML = population;
+            document.getElementById('generNum').innerHTML = generNum;
             updateCanvas(map_len_num, map_wid_num);
         }
     });
@@ -62,19 +66,49 @@ function setup() {
     document.getElementById('start').addEventListener("click", function () {
        //0表示未开始，1表示已开始
        
-        if (state == 0) {
-            
+        if (state == 0) {  
             document.getElementById('start_word').innerHTML="pause";
             state = 1;
             timedCount();//异步？
             intervalTimer = window.setInterval(nextGeneration, rate);  
         } else {
             document.getElementById('start_word').innerHTML="start";
-            state = 0;
+            state = 0; 
             window.clearInterval(intervalTimer); 
         }
     });
+    document.getElementById('random_map').addEventListener("click", function () {
+        
+        let cellNum = map_len_num * map_wid_num;
+        let alive_cell = parseInt(cellNum / 5);
+        let cell_w;
+        let cell_l;
+        grid = blankGrid(map_len_num, map_wid_num);
+        while (alive_cell)
+        {
+            cell_w = Math.floor(Math.random() * map_wid_num); 
+            cell_l = Math.floor(Math.random() * map_len_num);
+            if (grid[cell_w][cell_l] == 0) {
+                grid[cell_w][cell_l] = 1;
+                alive_cell--;
+                population++;
+            }
+        }
+        document.getElementById('population').innerHTML = population;
+        updateCanvas(map_len_num, map_wid_num);
+    });
     
+     document.getElementById('reset_map').addEventListener("click", function () {
+        grid = blankGrid(map_len_num, map_wid_num);
+        state = 0;
+        generNum = 0;
+        runnng_time = 0;
+        population = 0;
+        document.getElementById('timer').innerHTML = runnng_time;
+        document.getElementById('population').innerHTML = population;
+        document.getElementById('generNum').innerHTML = generNum;
+        updateCanvas(map_len_num, map_wid_num);
+     });
    
 
 
@@ -85,10 +119,15 @@ function mousePressed() {
     let cell_column = parseInt(mouseX / grid_width);
 
     if (mouseY <= map_width && mouseY >= 0 && mouseX <= map_length && mouseX >= 0) {
-        if (grid[cell_row][cell_column] == 0)
+        if (grid[cell_row][cell_column] == 0) {
             grid[cell_row][cell_column] = 1;
-        else
-            grid[cell_row][cell_column] = 0;       
+            population++;
+        } 
+        else {
+            grid[cell_row][cell_column] = 0;   
+            population--;
+        }
+        document.getElementById('population').innerHTML = population;        
         updateCanvas(map_len_num, map_wid_num);
     }
 }
@@ -131,18 +170,22 @@ function nextPoint(x, num) {
     //0是死，1是活
     if (x == 0) {
         if (num == 3) {
+            population++;
             return 1;
         }
     }
     if (x == 1) {
         if (num > 3) {
+            population--;
             return 0;
         }
         if (num < 2) {
+            population--;
             return 0;
         }
         return 1;
     }
+    document.getElementById('population').innerHTML = population;
     return 0;
 }
     
