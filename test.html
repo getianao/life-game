@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Life Game Unit Test</title>
+ 
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.6.2.css">
+  <script src="https://code.jquery.com/qunit/qunit-2.6.2.js"></script>
+  <script type="text/javascript" src="view.js"></script>
+  <script type="text/javascript" src="logic.js"></script>
+  <script type="text/javascript" src="grid.js"></script>
+ 
+  <script>
+  QUnit.test("next point", function( assert ) {
+    assert.equal(nextPoint(0,1),0);
+    assert.equal(nextPoint(0,3),1);
+    assert.equal(nextPoint(0,4),0);
+    assert.equal(nextPoint(1,1),0);
+    assert.equal(nextPoint(1,2),1);
+    assert.equal(nextPoint(1,3),1);
+    assert.equal(nextPoint(1,4),0); 
+  }); 
+
+  QUnit.test("next generation", function( assert ) {
+    let mNextGrip=blankGrid(3,3);
+
+    assert.equal(getNextGen(mNextGrip,[[0,0,0],[0,0,0],[0,0,0]],3,3).toString() ,[[0,0,0],[0,0,0],[0,0,0]].toString());
+    assert.equal(getNextGen(mNextGrip,[[1,1,1],[1,1,1],[1,1,1]],3,3).toString(),[[1,0,1],[0,0,0],[1,0,1]].toString());
+    assert.equal(getNextGen(mNextGrip,[[1,0,1],[0,0,0],[1,0,1]],3,3).toString(),[[0,0,0],[0,0,0],[0,0,0]].toString());
+  }); 
+
+    QUnit.test("mouse presses", function( assert ) {
+    let m_grid_width=30;
+    let m_grid=[[1,0,1],[0,0,0],[1,0,1]];
+    let m_map_width = 500;
+    let m_map_length = 500;
+    assert.equal(mouseLocation(1,1,m_grid_width,m_grid,m_map_width,m_map_length).toString() ,[[0,0,1],[0,0,0],[1,0,1]].toString());
+    assert.equal(mouseLocation(31,1,m_grid_width,m_grid,m_map_width,m_map_length).toString() ,[[0,1,1],[0,0,0],[1,0,1]].toString());
+    assert.equal(mouseLocation(1,31,m_grid_width,m_grid,m_map_width,m_map_length).toString() ,[[0,1,1],[1,0,0],[1,0,1]].toString());
+    assert.equal(mouseLocation(-1,31,m_grid_width,m_grid,m_map_width,m_map_length),null);
+    assert.equal(mouseLocation(1,map_length+100,m_grid_width,m_grid,m_map_width,m_map_length),null);
+  }); 
+  </script>
+</head>
+<body>
+ 
+<div id="qunit"></div>
+ 
+</body>
+</html>
