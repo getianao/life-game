@@ -29,7 +29,7 @@
     assert.equal(getNextGen(mNextGrip,[[1,0,1],[0,0,0],[1,0,1]],3,3).toString(),[[0,0,0],[0,0,0],[0,0,0]].toString());
   }); 
 
-    QUnit.test("mouse presses", function( assert ) {
+    QUnit.test("mouse pressed", function( assert ) {
     let m_grid_width=30;
     let m_grid=[[1,0,1],[0,0,0],[1,0,1]];
     let m_map_width = 500;
@@ -40,6 +40,14 @@
     assert.equal(mouseLocation(-1,31,m_grid_width,m_grid,m_map_width,m_map_length),null);
     assert.equal(mouseLocation(1,map_length+100,m_grid_width,m_grid,m_map_width,m_map_length),null);
   }); 
+
+    QUnit.test("empty map", function( assert ) {
+    assert.equal(blankGrid(3,3).toString() ,[[0,0,0],[0,0,0],[0,0,0]].toString());
+    assert.equal(blankGrid(5,5).toString() ,[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],].toString());
+    assert.equal(blankGrid(2,2).toString() ,[[0,0],[0,0]].toString());
+    assert.equal(blankGrid(1,1).toString() ,[0].toString());
+  }); 
+
   </script>
 </head>
 <body>
