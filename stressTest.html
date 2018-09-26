@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>stress test</title>
+    <script src="JSLitmus.js"></script>
+    <script type="text/javascript" src="logic.js"></script>
+    <script type="text/javascript" src="grid.js"></script>
+   
+    <script>
+let grid=[[1,0,1],[0,1,1],[1,0,0],], nextGrip=[[0,0,0],[0,0,0],[0,0,0]]; //当代、次代细胞数组
+let left_navi;
+//细胞边长
+let grid_width = 30;
+//地图大小
+var map_len_num;
+var map_wid_num;
+let map_len_num_max;
+let map_wid_num_max;
+//地图像素大小
+let map_length;
+let map_width;
+let left_navi_width; //左端导航栏宽度
+
+let state = 0; //进行状态，0：暂停，1：开始
+let generNum = 0; //迭代次数
+let runnng_time = 0;
+let rate = 500;
+let population = 0;
+
+
+        JSLitmus.test('nextPoint', function (count) {
+    while (count -- ) nextPoint(0,1);
+})
+JSLitmus.test('getNextGen', function (count) {
+    while (count -- ) getNextGen(nextGrip,grid,3,3);
+})
+JSLitmus.test('mouseLocation', function (count) {
+    while (count -- ) mouseLocation(1,1,30,grid,90,90);
+})
+JSLitmus.test('blankGrid', function (count) {
+    while (count -- ) blankGrid(30,30);
+})
+
+    </script>
+</head>
+
+<body>
+</body>
+</html>
